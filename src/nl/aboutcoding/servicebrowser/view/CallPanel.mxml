@@ -125,7 +125,7 @@
 				var r:CallResult = new CallResult();
 				r.setData( event.fault, event );
 				outputTabs.addChild( r );
-				r.label = event.currentTarget.service.source;
+				r.label = event.currentTarget.service.source+"."+event.currentTarget.name;
 				outputTabs.selectedIndex = outputTabs.numChildren-1;
 			}
 			
