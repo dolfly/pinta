@@ -182,7 +182,7 @@ package nl.aboutcoding.servicebrowser.business
 		
 		private function onServicesFault( event:FaultEvent ):void
 		{
-			Alert.show("Unable to do services discovery: "+event.message, "Error");
+			Alert.show("Unable to do services discovery, invalid service URL or server response", "Error");
 		}
 	}
 }
