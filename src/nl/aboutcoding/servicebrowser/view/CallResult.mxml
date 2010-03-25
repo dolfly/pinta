@@ -158,7 +158,7 @@
 				for ( var prop:Object in obj )
 				{
 					o = new Object();
-					o.label = String(prop) + " = " + obj.prop;
+					o.label = String(prop) + " = " + obj[prop];
 					ret.push( o );
 				}
 				

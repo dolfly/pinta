@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <services-config>
     <services>
-        <service id="amfphp-flashremoting-service" class="flex.messaging.services.RemotingService" messageTypes="flex.messaging.messages.RemotingMessage">
-            <destination id="amfphp">
+        <service id="pinta-flashremoting-service" class="flex.messaging.services.RemotingService" messageTypes="flex.messaging.messages.RemotingMessage">
+            <destination id="pinta-dst">
                 <channels>
                     <channel ref="my-remote"/>
                 </channels>

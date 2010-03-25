@@ -14,7 +14,8 @@
 		borderStyle="none" 
 		showTitleBar="false" 
 		showStatusBar="false" 
-		currentState="Connect" minHeight="675" minWidth="837" backgroundImage="@Embed(source='assets/IMG_0901.jpg')">
+		currentState="Connect" minHeight="675" minWidth="837" 
+		>
 	<mx:states>
 		<mx:State name="Connect">
 			<mx:SetProperty target="{panel1}" name="visible" value="false"/>
@@ -24,6 +25,8 @@
 			<mx:SetProperty target="{applicationcontrolbar1}" name="visible" value="false"/>
 			<mx:SetStyle name="themeColor" value="#A2FF00"/>
 			<mx:SetProperty target="{callpanel1}" name="visible" value="false"/>
+			<mx:SetStyle name="backgroundImage"/>
+			
 		</mx:State>
 		<mx:State name="OutputMax">
 			<mx:SetProperty target="{panel1}" name="visible" value="false"/>
@@ -41,12 +44,11 @@
 	<comp:ServicesPanel layout="absolute" left="10" top="73" styleName="lightTitle" id="panel1" minWidth="817" minHeight="273" title="Services and Methods" right="10" height="273"></comp:ServicesPanel>
 	<mx:ApplicationControlBar height="55" id="applicationcontrolbar1" left="10" top="10" right="10">
 		<mx:Button label="Quit" labelPlacement="bottom" icon="@Embed(source='assets/stop.png')" paddingTop="5" click="onQuitClick(event)"/>
-		<mx:Button label="Connect" icon="@Embed(source='assets/connect.png')" labelPlacement="bottom" paddingTop="5" click="onConnectClick(event)"/>
+		<mx:Button label="Gateways" icon="@Embed(source='assets/connect.png')" labelPlacement="bottom" paddingTop="5" click="onConnectClick(event)"/>
 		<mx:VRule width="2" height="44"/>
 		<mx:Button label="Output" labelPlacement="bottom" icon="@Embed(source='assets/bullet_arrow_up.png')" paddingTop="5" click="toggleOutputWindow()" id="button1"/>
 		<mx:VRule width="2" height="44"/>
 	</mx:ApplicationControlBar>
-	<mx:Text text="Pinta AMF debugger" styleName="appTitle" right="21" top="19"/>
 	<comp:CallPanel id="callpanel1" bottom="10" right="10" left="10" top="354"></comp:CallPanel>
 	
 	<mx:transitions>

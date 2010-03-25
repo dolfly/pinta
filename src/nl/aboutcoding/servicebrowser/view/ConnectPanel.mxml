@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Panel height="282" layout="absolute" xmlns:mx="http://www.adobe.com/2006/mxml" 
-	title="Connection" 
+	title="Gateways" 
 	styleName="lightTitle" 
 	width="638" 
 	horizontalCenter="0" 
@@ -30,7 +30,7 @@
 		<mx:Label x="0" y="73" text="Username"/>
 		<mx:Label x="6" y="99" text="Password"/>
 		<mx:Label x="6" y="129" visible="false" text="Destination"/>
-		<mx:Button x="238" y="190" label="Connect" click="onConnectClick(event)" enabled="{profileList.selectedIndex >= 0 }" icon="@Embed(source='../../../../assets/connect.png')"/>
+		<mx:Button x="238" y="190" label="Use" click="onConnectClick(event)" enabled="{profileList.selectedIndex >= 0 }" icon="@Embed(source='../../../../assets/connect.png')"/>
 	</mx:Canvas>
 	<mx:Button x="530" y="200" label="Quit" icon="@Embed(source='../../../../assets/stop.png')" click="onQuitClick(event)"/>
 	
