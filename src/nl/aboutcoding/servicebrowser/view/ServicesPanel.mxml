@@ -22,8 +22,8 @@
 	</mx:DataGrid>
 	<mx:DataGrid top="10" id="argumentsGrid" dataProvider="{activeMethod.arguments}" left="384" width="386" height="180" editable="true">
 		<mx:columns>
-			<mx:DataGridColumn headerText="Argument" dataField="name"/>
-			<mx:DataGridColumn headerText="Default value" dataField="value"/>
+			<mx:DataGridColumn headerText="Arguments" dataField="name"/>
+			<mx:DataGridColumn headerText="Default values" dataField="value"/>
 		</mx:columns>
 	</mx:DataGrid>
 	<mx:Button icon="@Embed(source='assets/add.png')" id="addMethodBtn" left="197" top="200" enabled="{activeService!=null}" click="onMethodAdd(event)"/>
@@ -67,8 +67,15 @@
 			private function init():void
 			{
 				eventHub.addEventListener( StatusChangeEvent.RESET, onReset );
+				eventHub.addEventListener( StatusChangeEvent.CONNECTING, onConnecting );
 			}
 
+			private function onConnecting( event:StatusChangeEvent ):void
+			{
+				this.activeService = null;
+				this.activeMethod = null;
+			}
+			
 			private function onReset( event:StatusChangeEvent ):void
 			{
 				activeMethod = null;
