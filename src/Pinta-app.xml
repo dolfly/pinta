@@ -24,14 +24,14 @@
 	<name>Pinta AMF debugger</name>
 
 	<!-- An application version designator (such as "v1", "2.5", or "Alpha 1"). Required. -->
-	<version>1.0</version>
+	<version>1.03</version>
 
 	<!-- Description, displayed in the AIR application installer.
 	     May have multiple values for each language. See samples or xsd schema file. Optional. -->
 	<description>Utility to place AMF calls en view their outputs.</description>
 
 	<!-- Copyright information. Optional -->
-	<copyright>Christiaan Ottow (chris@aboutcoding.nl) 2009</copyright>
+	<copyright>Christiaan Ottow (chris@aboutcoding.nl) 2009-2010</copyright>
 
 	<!-- Settings for the application's initial window. Required. -->
 	<initialWindow>
@@ -40,7 +40,7 @@
 		<content>[This value will be overwritten by Flex Builder in the output app.xml]</content>
 		
 		<!-- The title of the main window. Optional. -->
-		<!-- <title>AMF Debugger</title> -->
+		<!-- <title>Pinta AMF debugger</title> -->
 
 		<!-- The type of system chrome to use (either "standard" or "none"). Optional. Default standard. -->
 		<systemChrome>standard</systemChrome>

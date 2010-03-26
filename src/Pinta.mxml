@@ -70,6 +70,8 @@
 	
 	<mx:Script>
 		<![CDATA[
+			import air.update.events.UpdateEvent;
+			import air.update.ApplicationUpdaterUI;
 			import gs.TweenLite;
 			import mx.effects.Tween;
 			import nl.aboutcoding.servicebrowser.events.StatusChangeEvent;
@@ -88,15 +90,44 @@
 			
 			[Bindable]
 			private var selectedMethod:RMethod;
+			private var appUpdater:ApplicationUpdaterUI = new ApplicationUpdaterUI();
+
 			
 			public function init():void
 			{
 				serviceInfo = ServiceInfo.getInstance();
 				eventHub = EventHub.getInstance();
 				connector = Connector.getInstance();
+				setApplicationVersion();
 				
 				eventHub.addEventListener( StatusChangeEvent.CONNECTED, onConnect );
 				eventHub.addEventListener( StatusChangeEvent.QUIT, onQuit );
+
+				checkForUpdate();
+			}
+			
+			private function checkForUpdate():void {
+			    setApplicationVersion(); // Find the current version so we can show it below
+			    appUpdater.updateURL = "http://drainbamage.nl/pinta/update.xml"; // Server-side XML file describing update
+			    appUpdater.isCheckForUpdateVisible = false; // We won't ask permission to check for an update
+			    appUpdater.addEventListener(UpdateEvent.INITIALIZED, onUpdate); // Once initialized, run onUpdate
+			    appUpdater.addEventListener(ErrorEvent.ERROR, onError); // If something goes wrong, run onError
+			    appUpdater.initialize(); // Initialize the update framework
+			}
+			
+			private function onError(event:ErrorEvent):void {
+			    Alert.show(event.toString());
+			}
+			
+			private function onUpdate(event:UpdateEvent):void {
+			    appUpdater.checkNow(); // Go check for an update now
+			}
+			
+			// Find the current version for our Label below
+			private function setApplicationVersion():void {
+			    var appXML:XML = NativeApplication.nativeApplication.applicationDescriptor;
+			    var ns:Namespace = appXML.namespace();
+			    ver.text = "Pinta " + appXML.ns::version;
 			}
 			
 			private function onQuit( event:StatusChangeEvent ):void
@@ -132,4 +163,5 @@
 			
 		]]>
 	</mx:Script>
+	<mx:Label text="Pinta version " x="726" y="32" color="#D5D5D5" id="ver"/>
 </mx:WindowedApplication>
